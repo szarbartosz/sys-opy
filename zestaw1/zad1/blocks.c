@@ -82,12 +82,6 @@ char ** createEditingOperationsBlock(){
     return block;
 }
 
-// struct Table{
-//     int length;
-//     int *editOpsBlocksLength;
-//     char ***editOpsBlocks;
-// }
-
 //initialize main table
 struct Table initTable(){
     struct Table mainTab;
