@@ -1,8 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include "blocks.h"
 
 //concat two string into one
-char *concat(const char *str1, const char str2){
+char *concat(const char *str1, const char *str2){
     char *linked = malloc(strlen(str1) + strlen(str2) + 1);
     strcpy(linked, str1);
     strcat(linked, str2);
@@ -27,7 +30,7 @@ void compareSequence(char *sequence){
     system("echo "" > tmp.txt");
     toCompare = strtok(sequenceTab, separator);
     while(toCompare != NULL){
-        char file1 = toCompare;
+        char *file1 = toCompare;
         toCompare = strtok(NULL, separator);
         char *file2 = toCompare;
         toCompare = strtok(NULL, separator);
@@ -55,7 +58,7 @@ int countEditingOperations(){
 
 //create block of editing operations and fill it with operations present in tmp.txt
 char **createEditingOperationsBlock(){
-    FILE *fopen = ("tmp.txt", "r");
+    FILE *tmpContent = fopen("tmp.txt", "r");
     char editOps[255];
     if(tmpContent == NULL){
         printf("tmp.txt  is empty or doesn't exist");
@@ -67,7 +70,7 @@ char **createEditingOperationsBlock(){
     int index = 0;
     while(fgets(editOps, 255, tmpContent)){
         if(isdigit(editOps[0])){
-            if(i != 0){
+            if(index != 0){
                 block[index - 1] = operation;
             }
             operation = "";
@@ -97,7 +100,7 @@ int addBlockOfEditingOperations(struct Table *mainTab){
         printf("null pointer exception");
         exit(EXIT_FAILURE);
     }
-    if(mianTab -> length == 0){
+    if(mainTab -> length == 0){
         mainTab -> length = 1;
         mainTab -> editOpsBlocksLength = calloc(1, sizeof(int));
         mainTab -> editOpsBlocksLength[0] = countEditingOperations();
@@ -132,7 +135,7 @@ void deleteOperation(struct Table *mainTab, int blockIndex, int operationIndex){
     block[operationIndex] = NULL;
 }
 
-void deleteBlock(struct Table *mainTable, int blockIndex){
+void deleteBlock(struct Table *mainTab, int blockIndex){
     if(mainTab == NULL){
         printf("null pointer exception");
         exit(EXIT_FAILURE);
