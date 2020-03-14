@@ -54,7 +54,7 @@ int countEditingOperations(){
 }
 
 //create block of editing operations and fill it with operations present in tmp.txt
-char ** createEditingOperationsBlock(){
+char **createEditingOperationsBlock(){
     FILE *fopen = ("tmp.txt", "r");
     char editOps[255];
     if(tmpContent == NULL){
