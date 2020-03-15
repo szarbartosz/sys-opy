@@ -27,7 +27,8 @@ void compareSequence(char *sequence){
 
     char separator[] = ":";
     char *toCompare;
-    system("echo "" > tmp.txt");
+    system("rm tmp.txt");
+    system("touch tmp.txt");
     toCompare = strtok(sequenceTab, separator);
     while(toCompare != NULL){
         char *file1 = toCompare;
@@ -65,7 +66,12 @@ char **createEditingOperationsBlock(){
         exit(EXIT_FAILURE);
     }
     int editingOperationsNo = countEditingOperations();
-    char * operation = "NULL";
+    char *operation = "NULL";
+    if(editingOperationsNo == 0){
+        printf("operations not found in tmp.txt");
+        fclose(tmpContent);
+        return NULL;
+    }
     char **block = calloc(editingOperationsNo, sizeof(char*));
     int index = 0;
     while(fgets(editOps, 255, tmpContent)){
@@ -82,6 +88,7 @@ char **createEditingOperationsBlock(){
         }
     }
     block[index - 1] = operation;
+    fclose(tmpContent);
     return block;
 }
 
@@ -109,43 +116,52 @@ int addBlockOfEditingOperations(struct Table *mainTab){
         return 0;
     }
     mainTab -> length++;
-    int length = mainTab -> length;
-    mainTab -> editOpsBlocksLength = realloc(mainTab -> editOpsBlocksLength, length * sizeof(int));
-    mainTab -> editOpsBlocksLength[length - 1] = countEditingOperations();
-    mainTab -> editOpsBlocks = realloc(mainTab -> editOpsBlocks, length * sizeof(char**));
-    mainTab -> editOpsBlocks[length - 1] = createEditingOperationsBlock();
-    return length - 1;
+    int size = mainTab -> length;
+    mainTab -> editOpsBlocksLength = realloc(mainTab -> editOpsBlocksLength, size * sizeof(int));
+    mainTab -> editOpsBlocksLength[size - 1] = countEditingOperations();
+    mainTab -> editOpsBlocks = realloc(mainTab -> editOpsBlocks, size * sizeof(char**));
+    mainTab -> editOpsBlocks[size - 1] = createEditingOperationsBlock();
+    return size - 1;
 }
 
 void deleteOperation(struct Table *mainTab, int blockIndex, int operationIndex){
     if(mainTab == NULL){
         printf("null pointer exception");
-        exit(EXIT_FAILURE);
+        return;
     }
-    if(blockIndex > mainTab -> length || blockIndex < 0){
+    if(blockIndex > mainTab -> length -1 || blockIndex < 0){
         printf("block index is out of range");
-        exit(EXIT_FAILURE);
+        return;
     }
     if(operationIndex > mainTab -> editOpsBlocksLength[blockIndex] - 1 || operationIndex < 0){
         printf("operation index is out of range");
-        exit(EXIT_FAILURE);
+        return;
     }
     char ** block = mainTab -> editOpsBlocks[blockIndex];
     free(block[operationIndex]);
-    block[operationIndex] = NULL;
 }
 
 void deleteBlock(struct Table *mainTab, int blockIndex){
     if(mainTab == NULL){
         printf("null pointer exception");
-        exit(EXIT_FAILURE);
+        return;
+    }
+    if(blockIndex > mainTab -> length - 1 || blockIndex < 0){
+        printf("block index is out of range");
+        return;
     }
     char **block = mainTab -> editOpsBlocks[blockIndex];
     int blockLength = mainTab -> editOpsBlocksLength[blockIndex];
-    mainTab -> editOpsBlocksLength[blockIndex]--;
+    mainTab -> editOpsBlocksLength[blockIndex] = -1;
     for(int i = 0; i < blockLength; i++){
         free(block[i]);
     }
     free(block);
-    block = NULL;
+}
+
+void deleteTable(struct Table *mainTab){
+    free(mainTab -> editOpsBlocks);
+    free(mainTab -> editOpsBlocksLength);
+    mainTab -> editOpsBlocks = NULL;
+    mainTab -> editOpsBlocksLength = NULL;
 }

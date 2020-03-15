@@ -14,4 +14,4 @@ shared:
 	$(CFLAGS) -shared -o blockslib.so blocks.o
 
 clear:
-	rm -f *.o *.a *.so blockslib.h
+	rm -f *.o *.a *.so

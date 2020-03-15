@@ -13,5 +13,6 @@ struct Table initTable();
 int addBlockOfEditingOperations(struct Table *mainTab);
 void deleteOperation(struct Table *mainTab, int blockIndex, int operationIndex);
 void deleteBlock(struct Table *mainTable, int blockIndex);
+void deleteTable(struct Table *mainTab);
 
 
