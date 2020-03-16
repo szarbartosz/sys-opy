@@ -1,0 +1,159 @@
+0a1
+> jjj kkk
+2,3c3
+< bbb ccc
+< ddd
+---
+> fff ccc
+5c5
+< hhh iii
+\ No newline at end of file
+---
+> bbb ggg
+\ No newline at end of file
+0a1
+> jjj kkk
+2,3c3
+< bbb ccc
+< ddd
+---
+> fff ccc
+5c5,6
+< hhh iii
+---
+> bbb ggg
+> jjj kkk
+7,8c8
+< bbb ccc
+< ddd
+---
+> fff ccc
+10c10,11
+< hhh iii
+---
+> bbb ggg
+> jjj kkk
+12,13c13
+< bbb ccc
+< ddd
+---
+> fff ccc
+15c15,16
+< hhh iii
+---
+> bbb ggg
+> jjj kkk
+17,18c18
+< bbb ccc
+< ddd
+---
+> fff ccc
+20c20,21
+< hhh iii
+---
+> bbb ggg
+> jjj kkk
+22,23c23
+< bbb ccc
+< ddd
+---
+> fff ccc
+25c25,26
+< hhh iii
+---
+> bbb ggg
+> jjj kkk
+27,28c28
+< bbb ccc
+< ddd
+---
+> fff ccc
+30c30,31
+< hhh iii
+---
+> bbb ggg
+> jjj kkk
+32,33c33
+< bbb ccc
+< ddd
+---
+> fff ccc
+35c35,36
+< hhh iii
+---
+> bbb ggg
+> jjj kkk
+37,38c38
+< bbb ccc
+< ddd
+---
+> fff ccc
+40c40,41
+< hhh iii
+---
+> bbb ggg
+> jjj kkk
+42,43c43
+< bbb ccc
+< ddd
+---
+> fff ccc
+45c45,46
+< hhh iii
+---
+> bbb ggg
+> jjj kkk
+47,48c48
+< bbb ccc
+< ddd
+---
+> fff ccc
+50c50
+< hhh iii
+\ No newline at end of file
+---
+> bbb ggg
+\ No newline at end of file
+1,5c1,13
+< aaa
+< bbb ccc
+< ddd
+< eee
+< hhh iii
+\ No newline at end of file
+---
+> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus eleifend odio, nec porta eros dictum eu. 
+> Aenean vulputate, risus sit amet auctor sodales, nisl lacus pharetra erat, at tristique nunc lectus in nibh. 
+> Mauris non ex suscipit, tincidunt erat pulvinar, fermentum lectus. Donec mi libero, euismod ac rhoncus quis, fringilla nec eros. 
+> Maecenas molestie, orci in tincidunt cursus, mi odio sodales risus, sed lobortis risus odio non nunc. 
+> Sed vestibulum ligula quis convallis ultrices.
+> Etiam egestas erat nec risus consectetur, ut auctor purus sollicitudin.
+> Curabitur quis purus et nisi varius efficitur ut ut augue. Suspendisse ornare felis eu quam iaculis tempus.
+> Nulla ut nibh enim. Nam dignissim pharetra pellentesque. Suspendisse sem leo, faucibus at iaculis sed, hendrerit nec ipsum. 
+> Sed dignissim, tortor sit amet congue hendrerit, eros libero molestie arcu, ac commodo enim urna eget dui. 
+> In sit amet ex vitae justo fringilla consequat. Quisque sagittis sit amet nunc in iaculis. Donec ut dolor interdum, 
+> pulvinar urna ac, ornare mauris.Morbi mi tortor, laoreet ut tincidunt nec, imperdiet in nisi. 
+> Etiam porta urna vitae elit bibendum, a suscipit libero suscipit. Interdum et malesuada fames ac ante ipsum primis in faucibus. 
+> Donec ligula purus, faucibus quis lacus id, commodo luctus lorem. 
+\ No newline at end of file
+1,5c1,12
+< jjj kkk
+< aaa
+< fff ccc
+< eee
+< bbb ggg
+\ No newline at end of file
+---
+> Aenean vulputate, risus sit amet auctor sodales, nisl lacus pharetra erat, at tristique nunc lectus in nibh. 
+> Nulla ut nibh enim. Nam dignissim pharetra pellentesque. Suspendisse sem leo, faucibus at iaculis sed, hendrerit nec ipsum. 
+> In sit amet ex vitae justo fringilla consequat. Quisque sagittis sit amet nunc in iaculis. Donec ut dolor interdum, 
+> Maecenas molestie, orci in tincidunt cursus, mi odio sodales risus, sed lobortis risus odio non nunc. 
+> Sed vestibulum ligula quis convallis ultrices.
+> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque cursus eleifend odio, nec porta eros dictum eu.
+> Etiam egestas erat nec risus consectetur, ut auctor purus sollicitudin.
+> Mauris non ex suscipit, tincidunt erat pulvinar, fermentum lectus. Donec mi libero, euismod ac rhoncus quis, fringilla nec eros. 
+> Curabitur quis purus et nisi varius efficitur ut ut augue. Suspendisse ornare felis eu quam iaculis tempus.
+> pulvinar urna ac, ornare mauris.Morbi mi tortor, laoreet ut tincidunt nec, imperdiet in nisi. 
+> Donec ligula purus, faucibus quis lacus id, commodo luctus lorem. 
+> Sed dignissim, tortor sit amet congue hendrerit, eros libero molestie arcu, ac commodo enim urna eget dui. 
+\ No newline at end of file

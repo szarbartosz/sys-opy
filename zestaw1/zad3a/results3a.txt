@@ -1,0 +1,18 @@
+static: 
+
+-> test1
+real    0m0.022s
+user    0m0.010s
+sys     0m0.012s
+
+-> test2
+real    0m0.015s
+user    0m0.008s
+sys     0m0.007s
+
+->test3
+real    0m0.025s
+user    0m0.006s
+sys     0m0.019s
+
+shared i dynamic się kompilują ale 

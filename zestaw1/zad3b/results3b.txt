@@ -1,0 +1,69 @@
+//test -> described in makefile
+
+optimO:
+
+->test1:
+real    0m0.024s
+user    0m0.009s
+sys     0m0.016s
+
+->test2:
+real    0m0.019s
+user    0m0.009s
+sys     0m0.010s
+
+->test3:
+real    0m0.021s
+user    0m0.009s
+sys     0m0.012s
+
+optimO2:
+
+->test1:
+real    0m0.022s
+user    0m0.006s
+sys     0m0.016s
+
+->test2:
+real    0m0.014s
+user    0m0.009s
+sys     0m0.005s
+
+->test3:
+real    0m0.025s
+user    0m0.014s
+sys     0m0.011s
+
+optimO3:
+
+->test1:
+real    0m0.026s
+user    0m0.012s
+sys     0m0.014s
+
+->test2:
+real    0m0.017s
+user    0m0.011s
+sys     0m0.006s
+
+->test3:
+real    0m0.024s
+user    0m0.008s
+sys     0m0.016s
+
+optimOs:
+
+->test1:
+real    0m0.026s
+user    0m0.011s
+sys     0m0.015s
+
+->test2:
+real    0m0.016s
+user    0m0.007s
+sys     0m0.009s
+
+->test3:
+real    0m0.025s
+user    0m0.013s
+sys     0m0.013s

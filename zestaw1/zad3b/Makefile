@@ -3,7 +3,7 @@ CFLAGS = gcc -Wall
 static:
 	make clear
 	$(CFLAGS) -c blocks.c
-	ar rcs libblocks.a blocks.o
+	ar crs libblocks.a blocks.o
 	$(CFLAGS) main.c -o main -L. -lblocks
 
 
@@ -18,6 +18,28 @@ dynamic:
 	$(CFLAGS) -c -fPIC blocks.c
 	$(CFLAGS) -shared -fPIC -o blockslib.so blocks.o
 	$(CFLAGS) -o main dynamicMain.c -Wl,--no-as-needed -ldl -I.
+
+
+optimO:
+	$(CFLAGS) -c blocks.c
+	ar crs libblocks.a blocks.o
+	$(CFLAGS) -O main.c -o main -L. -lblocks
+
+optimO2:
+	$(CFLAGS) -c blocks.c
+	ar crs libblocks.a blocks.o
+	$(CFLAGS) -O2 main.c -o main -L. -lblocks
+
+optimO3:
+	$(CFLAGS) -c blocks.c
+	ar crs libblocks.a blocks.o
+	$(CFLAGS) -O3 main.c -o main -L. -lblocks
+
+optimOs:
+	$(CFLAGS) -c blocks.c
+	ar crs libblocks.a blocks.o
+	$(CFLAGS) -Os main.c -o main -L. -lblocks
+
 
 
 tests: test1 test2 test3
