@@ -241,7 +241,7 @@ void copy_lib(char *file_name1, char *file_name2, int number_of_records, int len
     fclose(file2);
 }
 
-void read_from_command_line(int argc, char *argv[]){
+void red_command(int argc, char *argv[]){
     if (strcmp(argv[1], "generate") == 0){
         char *file_name = argv[2];
         int number_of_records = atoi(argv[3]);
@@ -284,5 +284,5 @@ void read_from_command_line(int argc, char *argv[]){
 
 
 int main(int argc, char *argv[]){
-    read_from_command_line(argc, argv);
+    read_command(argc, argv);
 }
