@@ -1,0 +1,256 @@
+//1 bajt
+
+time ./main copy dane kopia1 8000 1 sys
+real	0m0.042s
+user	0m0.004s
+sys	    0m0.038s
+
+time ./main copy dane kopia2 8000 1 lib
+real	0m0.015s
+user	0m0.003s
+sys	    0m0.003s
+
+time ./main sort kopia1 8000 1 sys
+real	0m6.367s
+user	0m1.426s
+sys	    0m4.918s
+
+time ./main sort kopia2 8000 1 lib
+real	0m7.647s
+user	0m2.036s
+sys	    0m5.506s
+
+time ./main copy dane kopia1 16000 1 sys
+real	0m0.072s
+user	0m0.008s
+sys	    0m0.063s
+
+time ./main copy dane kopia2 16000 1 lib
+real	0m0.005s
+user	0m0.002s
+sys	    0m0.003s
+
+time ./main sort kopia1 16000 1 sys
+real	0m28.147s
+user	0m6.317s
+sys	    0m21.665s
+
+time ./main sort kopia2 16000 1 lib
+real	0m21.704s
+user	0m6.613s
+sys	    0m15.042s
+
+
+//4 bajty
+
+time ./main copy dane kopia1 8000 4 sys
+real	0m0.042s
+user	0m0.004s
+sys	    0m0.037s
+
+time ./main copy dane kopia2 8000 4 lib
+real	0m0.005s
+user	0m0.001s
+sys	    0m0.004s
+
+time ./main sort kopia1 8000 4 sys
+real	0m0.281s
+user	0m0.089s
+sys	    0m0.190s
+
+time ./main sort kopia2 8000 4 lib
+real	0m0.303s
+user	0m0.095s
+sys	    0m0.203s
+
+time ./main copy dane kopia1 16000 4 sys
+real	0m0.049s
+user	0m0.008s
+sys	    0m0.041s
+
+time ./main copy dane kopia2 16000 4 lib
+real	0m0.005s
+user	0m0.001s
+sys	    0m0.004s
+
+time ./main sort kopia1 16000 4 sys
+real    0m0,898s
+user    0m0,442s
+sys     0m0,455s
+
+time ./main sort kopia2 16000 4 lib
+real    0m0,993s
+user    0m0,511s
+sys     0m0,481s
+
+
+//512 bajtów
+
+time ./main copy dane kopia1 8000 512 sys
+real	0m0.041s
+user	0m0.001s
+sys	    0m0.040s
+
+time ./main copy dane kopia2 8000 512 lib
+real	0m0.029s
+user	0m0.002s
+sys	    0m0.014s
+
+time ./main sort kopia1 8000 512 sys
+real    0m0,535s
+user    0m0,231s
+sys     0m0,304s
+
+time ./main sort kopia2 8000 512 lib
+real    0m0,675s
+user    0m0,321s
+sys     0m0,353s
+
+time ./main copy dane kopia1 16000 512 sys
+real	0m0.059s
+user	0m0.007s
+sys	    0m0.051s
+
+time ./main copy dane kopia2 16000 512 lib
+real	0m0.036s
+user	0m0.002s
+sys	    0m0.010s
+
+time ./main sort kopia1 16000 512 sys
+real    0m1,043s
+user    0m0,457s
+sys     0m0,583s
+
+time ./main sort kopia2 16000 512 lib
+real    0m1,321s
+user    0m0,638s
+sys     0m0,682s
+
+
+//1024 bajty
+
+time ./main copy dane kopia1 8000 1024 sys
+real	0m0.048s
+user	0m0.004s
+sys	    0m0.044s
+
+time ./main copy dane kopia2 8000 1024 lib
+real	0m0.045s
+user	0m0.003s
+sys	0m0.023s
+
+time ./main sort kopia1 8000 1024 sys
+real    0m0,628s
+user    0m0,267s
+sys     0m0,360s
+
+time ./main sort kopia2 8000 1024 lib
+real    0m0,793s
+user    0m0,369s
+sys     0m0,422s
+
+time ./main copy dane kopia1 16000 1024 sys
+real	0m0.068s
+user	0m0.005s
+sys	    0m0.063s
+
+time ./main copy dane kopia2 16000 1024 lib
+real	0m0.095s
+user	0m0.008s
+sys	0m0.039s
+
+time ./main sort kopia1 16000 1024 sys
+real    0m1,261s
+user    0m0,492s
+sys     0m0,767s
+
+time ./main sort kopia2 16000 1024 lib
+real    0m1,623s
+user    0m0,678s
+sys     0m0,939s
+
+
+//4096 bajtów
+
+time ./main copy dane kopia1 8000 4096 sys
+real	0m0.068s
+user	0m0.003s
+sys	    0m0.065s
+
+time ./main copy dane kopia2 8000 4096 lib
+real	0m0.163s
+user	0m0.007s
+sys	    0m0.066s
+
+time ./main sort kopia1 8000 4096 sys
+real    0m1,139s
+user    0m0,369s
+sys     0m0,768s
+
+time ./main sort kopia2 8000 4096 lib
+real    0m1,431s
+user    0m0,489s
+sys     0m0,939s
+
+time ./main copy dane kopia1 16000 4096 sys
+real	0m0.103s
+user	0m0.007s
+sys	0m0.095s
+
+time ./main copy dane kopia2 16000 4096 lib
+real	0m0.290s
+user	0m0.011s
+sys	    0m0.105s
+
+time ./main sort kopia1 16000 4096 sys
+real	0m1.847s
+user	0m0.335s
+sys	    0m1.507s
+
+time ./main sort kopia2 16000 4096 lib
+real	0m2.218s
+user	0m0.455s
+sys	    0m1.757s
+
+
+//8192 bajty
+
+time ./main copy dane kopia1 8000 8192 sys
+real	0m0.092s
+user	0m0.005s
+sys	0m0.087s
+
+time ./main copy dane kopia2 8000 8192 lib
+real	0m0.299s
+user	0m0.011s
+sys	    0m0.110s
+
+time ./main sort kopia1 8000 8192 sys
+real	0m1.314s
+user	0m0.249s
+sys	    0m1.059s
+
+time ./main sort kopia2 8000 8192 lib
+real	0m1.579s
+user	0m0.307s
+sys	    0m1.263s
+
+time ./main copy dane kopia1 16000 8192 sys
+real	0m0.144s
+user	0m0.006s
+sys	    0m0.137s
+
+time ./main copy dane kopia2 16000 8192 lib
+real	0m0.478s
+user	0m0.018s
+sys	    0m0.188s
+
+time ./main sort kopia1 16000 8192 sys
+real	0m2.940s
+user	0m0.529s
+sys	    0m2.401s
+
+time ./main sort kopia2 16000 8192 lib
+real	0m3.389s
+user	0m0.678s
+sys	    0m2.648s
