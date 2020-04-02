@@ -1,9 +1,0 @@
-fork - tworzy proces dziecko -> PID procesu dziecka do rodzica i 0 do dziecka gdy sukces, -1 do rodzica i brak procesu dziecka wpp (ustawia errno)
-
-exec - zamienia obraz procesu na nowy
-
-execl -execl(), execlp(), and execle() functions can be thought of as arg0, arg1, ..., argn. Together they describe a list of 
-one or more pointers to null-terminated strings that represent the argument list available to the executed program. 
-The first argument, by convention, should point to the filename associated with the file being executed.
-
-raise - send a signal to the caller, returns 0 on success, and nonzero for failure.
