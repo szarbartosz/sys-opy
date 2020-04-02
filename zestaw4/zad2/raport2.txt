@@ -1,0 +1,46 @@
+fork():
+sygnał oczekujący w procesie 'rodzicu' nie jest widoczny w procesie 'dziecku'
+dziedziczy maskowanie, handlery i ignorowanie
+
+exec():
+sygnal oczekujacy w procesie 'rodzicu' oczekuje rownież w procesie 'dziecku'
+dziedziczy maskowanie i ignorowanie
+
+
+[szarb@t480 zad2]$ ./main ignore
+w procesie 'rodzicu': 
+w procesie 'dziecku' (fork): 
+
+[szarb@t480 zad2]$ ./main handler
+w procesie 'rodzicu': 
+Odebrano SIGUSR1
+w procesie 'dziecku' (fork): 
+Odebrano SIGUSR1
+
+[szarb@t480 zad2]$ ./main mask
+w procesie 'rodzicu': 
+SIGUSR1 - pending
+w procesie 'dziecku' (fork): 
+SIGUSR1 - pending
+
+[szarb@t480 zad2]$ ./main pending
+w procesie 'rodzicu': 
+SIGUSR1 - pending
+w procesie 'dziecku' (fork): 
+
+
+[szarb@t480 zad2]$ ./main ignore exec
+w procesie 'rodzicu': 
+w procesie 'dziecku' (exec): 
+
+[szarb@t480 zad2]$ ./main mask exec
+w procesie 'rodzicu': 
+SIGUSR1 - pending
+w procesie 'dziecku' (exec): 
+SIGUSR1 - pending
+
+[szarb@t480 zad2]$ ./main pending exec
+w procesie 'rodzicu': 
+SIGUSR1 - pending
+w procesie 'dziecku' (exec): 
+SIGUSR1 - pending
