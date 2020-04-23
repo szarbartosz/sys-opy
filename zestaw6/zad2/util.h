@@ -3,6 +3,7 @@
 
 #define TEXT_LEN 8192
 #define FILENAME_LEN 16
+#define SERVER_KEY_ID 2
 #define MAX_CLIENTS 10
 #define STOP_SERVER 1L
 #define STOP 2L
@@ -24,5 +25,3 @@ typedef struct {
     char* queue_filename;
     int connected_client_id;
 } client;
-
-#endif

@@ -10,7 +10,7 @@
 int own_id;
 mqd_t client_queue;
 mqd_t server_queue;
-mqd_t other_queue = -1;
+mqd_t other_queue;
 char filename[FILENAME_LEN + 1];
 
 
