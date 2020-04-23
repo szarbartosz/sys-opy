@@ -12,6 +12,31 @@ int clients_counter = 0;
 client* clients[MAX_CLIENTS] = {NULL};
 
 
+char* read_message(mqd_t src, char* type) {
+    char from_queue[TEXT_LEN + 2] = {0};
+
+    int success = mq_receive(src, from_queue, TEXT_LEN + 1, NULL);
+    if (success == -1) return NULL;
+
+    if (type) {
+        *type = from_queue[0];
+    }
+    char* retval = calloc(TEXT_LEN + 1, sizeof(char));
+    sprintf(retval, "%s", from_queue + 1);
+
+    return retval;
+}
+
+
+void send_message(mqd_t dest, char type, char* message) {
+    int length = strlen(message);
+    char* buffer = calloc(2 + length, sizeof(char));
+    buffer[0] = type;
+    sprintf(buffer + 1, "%s", message);
+    mq_send(dest, buffer, length + 1, TYPES_COUNT - type + 1);
+}
+
+
 void stop_handler(char* text) {
     int client_id = atoi(text);
 
@@ -63,31 +88,6 @@ void stop_server() {
 void sigint_handler(int signum) {
     (void)signum;
     stop_server();
-}
-
-
-char* read_message(mqd_t src, char* type) {
-    char from_queue[TEXT_LEN + 2] = {0};
-
-    int success = mq_receive(src, from_queue, TEXT_LEN + 1, NULL);
-    if (success == -1) return NULL;
-
-    if (type) {
-        *type = from_queue[0];
-    }
-    char* retval = calloc(TEXT_LEN + 1, sizeof(char));
-    sprintf(retval, "%s", from_queue + 1);
-
-    return retval;
-}
-
-
-void send_message(mqd_t dest, char type, char* message) {
-    int length = strlen(message);
-    char* buffer = calloc(2 + length, sizeof(char));
-    buffer[0] = type;
-    sprintf(buffer + 1, "%s", message);
-    mq_send(dest, buffer, length + 1, TYPES_COUNT - type + 1);
 }
 
 
