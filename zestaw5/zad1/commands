@@ -1,3 +1,5 @@
 ls -la . | grep main
 ls -la . | grep Makefile
 ls -la . | grep \.c
+ls -l | cat commands | ls -l -a
+cat commands | ls -l | ls -l -a

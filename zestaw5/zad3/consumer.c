@@ -12,7 +12,7 @@ int main(int argc, char *argv[]) {
     FILE *pipe = fopen(argv[1], "r");
     FILE *file = fopen(argv[2], "w+");
     int N = atoi(argv[3]);
-
+    
     char *buffer = calloc(N + 1, sizeof(char));
     while (fread(buffer, 1, N, pipe) > 0) {
         fwrite(buffer, 1, N, file);

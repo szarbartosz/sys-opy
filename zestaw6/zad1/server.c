@@ -15,6 +15,29 @@ int clients_counter = 0;
 client* clients[MAX_CLIENTS] = {NULL};
 
 
+void stop_handler(message* msg) {
+    int client_id = atoi(msg -> text);
+
+    int client_offset;
+    for (int i = 0; i < clients_counter; i++) {
+        if (clients[i] -> id == client_id) {
+            client_offset = i;
+            break;
+        }
+    }
+
+    client* client_to_delete = clients[client_offset];
+
+    for (int i = client_offset; i < clients_counter - 1; i++) {
+        clients[i] = clients[i + 1];
+    }
+    clients[clients_counter - 1] = NULL;
+    clients_counter--;
+
+    free(client_to_delete);
+}
+
+
 void stop_server() {
     message stop_server;
     stop_server.type = STOP_SERVER;
@@ -115,29 +138,6 @@ void disconnect_handler(message* msg) {
     message reply;
     reply.type = DISCONNECT;
     msgsnd(second -> queue_id, &reply, TEXT_LEN, 0);
-}
-
-
-void stop_handler(message* msg) {
-    int client_id = atoi(msg -> text);
-
-    int client_offset;
-    for (int i = 0; i < clients_counter; i++) {
-        if (clients[i] -> id == client_id) {
-            client_offset = i;
-            break;
-        }
-    }
-
-    client* client_to_delete = clients[client_offset];
-
-    for (int i = client_offset; i < clients_counter - 1; i++) {
-        clients[i] = clients[i + 1];
-    }
-    clients[clients_counter - 1] = NULL;
-    clients_counter--;
-
-    free(client_to_delete);
 }
 
 

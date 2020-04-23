@@ -12,6 +12,31 @@ int clients_counter = 0;
 client* clients[MAX_CLIENTS] = {NULL};
 
 
+void stop_handler(char* text) {
+    int client_id = atoi(text);
+
+    int client_offset;
+    for (int i = 0; i < clients_counter; i++) {
+        if (clients[i] -> id == client_id) {
+            client_offset = i;
+            break;
+        }
+    }
+
+    client* client_to_be_deleted = clients[client_offset];
+
+    for (int i = client_offset; i < clients_counter - 1; i++) {
+        clients[i] = clients[i + 1];
+    }
+    clients[clients_counter - 1] = NULL;
+    clients_counter--;
+
+    mq_close(client_to_be_deleted -> queue_id);
+    free(client_to_be_deleted -> queue_filename);
+    free(client_to_be_deleted);
+}
+
+
 void stop_server() {
     char text[TEXT_LEN + 1] = {0};
     for (int i = 0; i < clients_counter; i++) {
@@ -70,6 +95,7 @@ client* get_client(int client_id) {
     for (int i = 0; i < clients_counter; i++) {
         if (clients[i] -> id == client_id) {
           return clients[i];
+        }
     }
     return NULL;
 }
@@ -138,31 +164,6 @@ void disconnect_handler(char* text) {
 
     char reply[TEXT_LEN + 1] = {0};
     send_message(second -> queue_id, DISCONNECT, reply);
-}
-
-
-void stop_handler(char* text) {
-    int client_id = atoi(text);
-
-    int client_offset;
-    for (int i = 0; i < clients_counter; i++) {
-        if (clients[i] -> id == client_id) {
-            client_offset = i;
-            break;
-        }
-    }
-
-    client* client_to_be_deleted = clients[client_offset];
-
-    for (int i = client_offset; i < clients_counter - 1; i++) {
-        clients[i] = clients[i + 1];
-    }
-    clients[clients_counter - 1] = NULL;
-    clients_counter--;
-
-    mq_close(client_to_be_deleted -> queue_id);
-    free(client_to_be_deleted -> queue_filename);
-    free(client_to_be_deleted);
 }
 
 
