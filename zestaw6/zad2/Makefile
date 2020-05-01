@@ -6,5 +6,4 @@ compile:
 	$(CC) client.c -o client -lrt
 
 clear:
-	make clear
 	rm -f server client

@@ -14,22 +14,6 @@ mqd_t other_queue;
 char filename[FILENAME_LEN + 1];
 
 
-void stop_client() {
-    char msg[TEXT_LEN + 1] = {0};
-    sprintf(msg, "%d", own_id);
-
-    send_message(server_queue, STOP, msg);
-
-    mq_unlink(filename);
-    exit(0);
-}
-
-
-void sigint_handler() { 
-  stop_client(); 
-}
-
-
 char* read_message(mqd_t src, char* type) {
     char from_queue[TEXT_LEN + 2] = {0};
 
@@ -55,10 +39,27 @@ void send_message(mqd_t dest, char type, char* message) {
 }
 
 
+void stop_client() {
+    char msg[TEXT_LEN + 1] = {0};
+    sprintf(msg, "%d", own_id);
+
+    send_message(server_queue, STOP, msg);
+
+    mq_unlink(filename);
+    exit(0);
+}
+
+
+void sigint_handler() { 
+  stop_client(); 
+}
+
+
 void register_notification();
 
 
 void notification_handler(union sigval sv) {
+    (void)sv;
     register_notification();
     char *text;
     char type;
@@ -121,7 +122,7 @@ int main() {
     char *encoded_id = read_message(client_queue, NULL);
     own_id = atoi(encoded_id);
     free(encoded_id);
-    printf("own_id: %d\ncommand: ", own_id);
+    printf("client id: %d\ncommand: ", own_id);
 
     set_nonblocking();
     register_notification();

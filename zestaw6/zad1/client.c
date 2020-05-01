@@ -90,6 +90,7 @@ int main() {
     message init_ans;
     msgrcv(client_queue, &init_ans, TEXT_LEN, INIT, 0);
     own_id = atoi(init_ans.text);
+    rintf("client id: %d\n", own_id);
 
     set_timer();
     char line[128];
