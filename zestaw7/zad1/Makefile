@@ -2,8 +2,8 @@
  
 compile:
 	clear
-	$(CC) reciever.c -o reciever -lrt
-	$(CC) bagger.c -o bagger -lrt
+	$(CC) receiver.c -o receiver -lrt
+	$(CC) packer.c -o packer -lrt
 	$(CC) sender.c -o sender -lrt
 	$(CC) main.c -o main -lrt
 clear:
