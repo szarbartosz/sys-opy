@@ -1,9 +1,8 @@
-  
 #define PACKAGES_COUNT 10
 #define MAX_CREATED_COUNT 10
 
 #define SPACE_INDEX 0
-#define CREATED_INDEX 1
+#define CRATED_INDEX 1
 #define PACKED_INDEX 2
 #define CAN_MODIFY_INDEX 3
 
