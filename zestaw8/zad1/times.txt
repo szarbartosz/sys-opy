@@ -1,0 +1,86 @@
+SIGN
+
+[brtk@T480 zad1]$ ./main 1 sign input.ascii.pgm result.ascii.pgm
+thread 0 took 1554 microseconds
+total time: 1712 microseconds
+
+[brtk@T480 zad1]$ ./main 2 sign input.ascii.pgm result.ascii.pgm
+thread 0 took 2357 microseconds
+thread 1 took 3027 microseconds
+total time: 3190 microseconds
+
+[brtk@T480 zad1]$ ./main 4 sign input.ascii.pgm result.ascii.pgm
+thread 0 took 1154 microseconds
+thread 1 took 1378 microseconds
+thread 2 took 1799 microseconds
+thread 3 took 1325 microseconds
+total time: 1953 microseconds
+
+[brtk@T480 zad1]$ ./main 8 sign input.ascii.pgm result.ascii.pgm
+thread 0 took 1937 microseconds
+thread 1 took 1952 microseconds
+thread 2 took 2142 microseconds
+thread 3 took 2299 microseconds
+thread 4 took 2664 microseconds
+thread 5 took 2717 microseconds
+thread 6 took 2123 microseconds
+thread 7 took 2169 microseconds
+total time: 2894 microseconds
+
+BLOCK
+
+[brtk@T480 zad1]$ ./main 1 block input.ascii.pgm result.ascii.pgm
+thread 0 took 948 microseconds
+total time: 1113 microseconds
+
+[brtk@T480 zad1]$ ./main 2 block input.ascii.pgm result.ascii.pgm
+thread 0 took 801 microseconds
+thread 1 took 844 microseconds
+total time: 1026 microseconds
+
+[brtk@T480 zad1]$ ./main 4 block input.ascii.pgm result.ascii.pgm
+thread 0 took 711 microseconds
+thread 1 took 432 microseconds
+thread 2 took 419 microseconds
+thread 3 took 702 microseconds
+total time: 952 microseconds
+
+[brtk@T480 zad1]$ ./main 8 block input.ascii.pgm result.ascii.pgm
+thread 0 took 539 microseconds
+thread 1 took 485 microseconds
+thread 2 took 574 microseconds
+thread 3 took 469 microseconds
+thread 4 took 457 microseconds
+thread 5 took 451 microseconds
+thread 6 took 471 microseconds
+thread 7 took 483 microseconds
+total time: 1034 microseconds
+
+INTERLEAVED
+
+[brtk@T480 zad1]$ ./main 1 interleaved input.ascii.pgm result.ascii.pgm
+thread 0 took 948 microseconds
+total time: 1083 microseconds
+
+[brtk@T480 zad1]$ ./main 2 interleaved input.ascii.pgm result.ascii.pgm
+thread 0 took 514 microseconds
+thread 1 took 504 microseconds
+total time: 683 microseconds
+
+[brtk@T480 zad1]$ ./main 4 interleaved input.ascii.pgm result.ascii.pgm
+thread 0 took 259 microseconds
+thread 1 took 246 microseconds
+thread 2 took 248 microseconds
+thread 3 took 240 microseconds
+total time: 407 microseconds
+
+[brtk@T480 zad1]$ ./main 8 interleaved input.ascii.pgm result.ascii.pgm
+thread 0 took 246 microseconds
+thread 1 took 236 microseconds
+thread 2 took 224 microseconds
+thread 3 took 266 microseconds
+thread 4 took 224 microseconds
+thread 5 took 253 microseconds
+thread 6 took 246 microseconds
+thread 7 took 309 microseconds
+total time: 518 microseconds
