@@ -80,7 +80,6 @@ int add_client(char* nickname, int fd) {
         }
     }
 
-    // if no opponent avaible, get first free place
     for (int i = 0; i < MAX_PLAYERS && index == -1; i++) {
         if (clients[i] == NULL) {
             index = i;
@@ -187,7 +186,7 @@ int setup_network_socket(char* port) {
 
 int main(int argc, char* argv[]) {
     if (argc != 3) {
-        fprintf(stderr, "Usage: ./server port path");
+        fprintf(stderr, "to run enter: ./server <port> <path> eg: ./server 2137 /tmp/socket\n");
         return 1;
     }
 

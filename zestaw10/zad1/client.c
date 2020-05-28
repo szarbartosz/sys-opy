@@ -64,7 +64,7 @@ void check_board_status() {
     }
 
     if (is_drawn && !is_won) {
-        puts("draw");
+        puts("draw!");
     }
 
     if (is_won || is_drawn) {
@@ -91,10 +91,10 @@ void draw_board() {
 void game_loop() {
     if (state == START) {
         if (strcmp(arg, "name_taken") == 0) {
-            puts("This nickname is already taken");
+            puts("this nickname is already taken");
             exit(1);
         } else if (strcmp(arg, "no_enemy") == 0) {
-            puts("Game will begin as soon as the other player joins the game");
+            puts("waiting for the other player to join the game");
             state = WAIT_FOR_ENEMY;
         } else {
             board = new_board();
@@ -112,7 +112,7 @@ void game_loop() {
         is_o = arg[0] == 'O';
         state = is_o ? MOVE : WAIT_FOR_MOVE;
     } else if (state == WAIT_FOR_MOVE) {
-        puts("Waiting for enemy to make a move");
+        puts("waiting for enemy to make a move");
 
         pthread_mutex_lock(&reply_mutex);
         while (state != PROCESS_ENEMY_MOVE && state != QUIT) {
@@ -132,7 +132,7 @@ void game_loop() {
 
         int move;
         do {
-            printf("Enter next move (%c): ", is_o ? 'O' : 'X');
+            printf("enter next move (%c): ", is_o ? 'O' : 'X');
             scanf("%d", &move);
             move--;
         } while (!make_move(&board, move));
@@ -155,7 +155,7 @@ void game_loop() {
 
 int main(int argc, char* argv[]) {
     if (argc != 4) {
-        fprintf(stderr, "to run enter: ./client nickname type destination");
+        fprintf(stderr, "to run enter: ./client <nickname> <type> <destination> eg: ./client player1 local /tmp/socket\n");
         return 1;
     }
 
